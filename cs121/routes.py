@@ -30,8 +30,14 @@ def upload_file():
             pred_class=generate_prediction(pred_idx)
             # now get the caption from the DB:
             lyric_caption=generate_caption(pred_idx)
-            return render_template('displayResult.html', filename=filename, prediction=pred_class, caption=lyric_caption)
+            # will replace string "lyric" with lyric_caption once routes.py is set up correctly
+            return render_template('displayResult.html', filename=filename, prediction=pred_class, caption="lyric")
     return render_template('index.html')
+
+# how do we get
+@app.route('/templates/')
+def about():
+    return render_template('about.html')
 
 def generate_prediction(pred_idx):
     classes = ['happy', 'sad', 'disgusted', 'angry']
@@ -45,13 +51,13 @@ def generate_caption(pred_idx):
     classes = ['happy', 'sad', 'disgusted', 'angry']
     pred_class = classes[pred_idx]
     if pred_class == 'happy':
-        return getSongData('~/cs121/app/happysongs.csv')
+        return getSongData('~/cs121/app/databases/happysongs.csv')
     if pred_class == 'sad':
-        return getSongData('~/cs121/app/sadsongs.csv')
+        return getSongData('~/cs121/app/databases/sadsongs.csv')
     if pred_class == 'angry':
-        return getSongData('~/cs121/app/angrysongs.csv')
+        return getSongData('~/cs121/app/databases/angrysongs.csv')
     if pred_class == 'disgusted':
-        return getSongData('~/cs121/app/disgustedsongs.csv')
+        return getSongData('~/cs121/app/databases/disgustedsongs.csv')
 
 # get caption from database
 def getSongData(fileName):
