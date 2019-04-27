@@ -1,5 +1,7 @@
-body
+html,body
 {
+    position: relative;
+    overflow:auto;
     background:rgb(245, 245, 245);
     font-family: Tahoma, Geneva, sans-serif;
     color: rgb(105, 105, 105);
@@ -196,28 +198,35 @@ p
 }
 /* need to adjust scrolling b/w long and short pages */
 #footer {
-  position:fixed;
+  position:absolute;
   bottom: 0;
   left: 0;
   right: 0;
   margin: 0 auto;
   width: 100%;
-  height: 60px;
+  height: 2.5rem;
   float: center;
 }
 
+#container-fluid {
+  position: relative;
+  min-height: 100vh;
+}
 
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
 
-#container{
+/* #container{
   min-height: 100%;
   position: relative;
   height: 100%;
-}
+} */
 
-#body{
+/* #body{
   padding: 10px;
   padding-bottom: 60px;
-}
+} */
 
 .column {
   float: left;
