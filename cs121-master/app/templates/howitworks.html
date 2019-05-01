@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<div id="container">
+<head>
+  <title>Welcome to SnapCap</title>
+  <link rel="icon" href="../images/templogo.jpeg">
+  <script type="text/javascript" src="../index.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<div id="body">
+<body>
+
+  <div class="container-fluid">
+
+      <!-- title and logo -->
+      <h1 id="header">[ SnapCap ]</h1>
+      <!-- <img src="images/templogo.jpeg" alt="logo"> -->
+  </div>
+  <div class="page_title">
+      <h2> How It Works </h2>
+  </div>
+
+  <div id="hiw_text">
+    <p>
+      SnapCap uses deep learning to analyze your mood in the photo.
+       We’ve trained a resnet-30 neural net on thousands of images of
+       different moods, all classified by the emotions exhibited by the
+       people in those photos. So, we run your image through our neural net,
+       and get an emotional analysis of your face as it appears in the photo!
+    </p>
+
+    <p>
+      Next, we calculate a song that best fits your mood, using factors of songs
+      such as their tempo, danceability, and genre. From that song, we pull a
+      line from that song’s lyrics to caption your photo!
+    </p>
+
+      <div class="image">
+        <img src="../images/neural_net.png" alt="neural network diagram" height="60" width="45">
+      </div>
+
+      <h4>What's a neural net?</h4>
+      <p>
+        Neural Nets are trained by detecting features in an input, for example a photo.
+        Given images that are labeled with a mood, the model learns to generalize its predictions based on this
+        training data. Our neural net has an error rate of ____. It makes a prediction given its learning of features
+        from the __ moods it was trained on. These are "happy," "sad," "surprise," "anger," and "disgust."
+      </p>
+
+      <br>
+      <h4>Want to see our code?</h4>
+      <p><a href="https://github.com/SnapCapCo/SnapCapCo.github.io" target="_blank">SnapCapCo Github</a></p>
+
+  </div>
+
+</body>
+</div>
+
+<div id="footer">
+  <footer>
+    <div class="footerLinks">
+        <ul>
+          <!-- FILL IN w/ correct paths -->
+          <li> <a href="../index.html"> Home </a> </li>
+          <li> | </li>
+          <li> <a href="start.html"> Get Started </a> </li>
+          <li> | </li>
+          <li> <a href="howitworks.html"> How it Works </a> </li>
+          <li> | </li>
+          <li> <a href="about.html"> About Us </a> </li>
+        </ul>
+      </div>
+  </footer>
+</div>
+</div>
+</html>
