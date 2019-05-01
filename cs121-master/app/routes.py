@@ -25,9 +25,44 @@ def upload_file():
             filename = secure_filename(file.filename)
             save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(save_to)
-            pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
-            return render_template('displayResult.html', filename=filename, prediction=pred_class)
+            # get the prediction from the model:
+            pred_idx=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
+            pred_class=generate_prediction(pred_idx)
+            # now get the caption from the DB:
+            lyric_caption=generate_caption(pred_idx)
+            return render_template('displayResult.html', filename=filename, prediction=pred_class, caption=lyric_caption)
     return render_template('index.html')
+
+def generate_prediction(pred_idx):
+    classes = ['happy', 'sad', 'disgusted', 'angry']
+    pred_class = classes[pred_idx]
+    return pred_class
+
+
+
+# generate caption functions
+def generate_caption(pred_idx):
+    classes = ['happy', 'sad', 'disgusted', 'angry']
+    pred_class = classes[pred_idx]
+    if pred_class == 'happy':
+        return getSongData('~/cs121/app/databases/happysongs.csv')
+    if pred_class == 'sad':
+        return getSongData('~/cs121/app/databases/sadsongs.csv')
+    if pred_class == 'angry':
+        return getSongData('~/cs121/app/databases/angrysongs.csv')
+    if pred_class == 'disgusted':
+        return getSongData('~/cs121/app/databases/disgustedsongs.csv')
+
+# get caption from database
+def getSongData(fileName):
+    with open(fileName, mode='r') as csvFile:
+        row_count = sum(1 for row in csvFile)
+        randValue = random.randint(0,row_count+1)
+        title = csvFile[randValue][0]
+        artist = csvFile[randValue][1]
+        lyric = csvFile[randValue][2]
+        songTuple = (title, artist, lyric)
+        return lyric
 
 # allowed image types
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
