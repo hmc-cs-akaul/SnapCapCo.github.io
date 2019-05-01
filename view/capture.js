@@ -35,7 +35,9 @@
     .catch(function(err) {
       div = document.getElementById('cam-container');
       div2 = document.getElementById('canvas');
+      dLbtn = document.getElementById('dl-btn');
       div2.remove();
+      dLbtn.remove();
       while(div.firstChild){
         div.removeChild(div.firstChild);
         // div2.removeChild(div2.firstChild);
