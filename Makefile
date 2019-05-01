@@ -1,12 +1,13 @@
+GUNICORN := gunicorn app:app --workers=1 --threads=1
+
 .PHONY: dev
 dev:
 	FLASK_ENV=development pipenv run flask run
 
 .PHONY: prod
 prod:
-	pipenv run gunicorn app:app --workers=1 --threads=1
+	pipenv run $(GUNICORN)
 
 .PHONY: heroku
 heroku:
-	pip install fastai==1.0.52 --no-deps
-	make prod
+	RUNNING_ON_HEROKU=1 $(GUNICORN)

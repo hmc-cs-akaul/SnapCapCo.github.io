@@ -1,1 +1,1 @@
-web: make -C snapcap heroku
+web: make heroku

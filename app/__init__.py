@@ -1,13 +1,14 @@
-import matplotlib
-matplotlib.use('TkAgg')
+import os
+import subprocess
+import threading
 
 from flask import Flask
-from config import Config
 
 from flask import render_template, redirect, url_for, request, send_from_directory, flash
-import os
-from werkzeug import secure_filename
-from app import predictor
+
+class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
+    UPLOAD_FOLDER = 'static/'
 
 app = Flask(__name__, static_url_path='')
 app.config.from_object(Config)
@@ -20,7 +21,6 @@ def get_file(filename):
 def get_index():
     return get_file('index.html')
 
-@app.route('/', methods=['POST'])
 def upload_file():
     # check if the post request has the file part
     if 'file' not in request.files:
@@ -82,3 +82,14 @@ app.config['ALLOWED_EXTENSIONS']=ALLOWED_EXTENSIONS
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] in app.config['ALLOWED_EXTENSIONS']
+
+def load_fastai():
+    if os.environ.get("RUNNING_ON_HEROKU"):
+        subprocess.run(["pip", "install", "-r", "fastai-requirements.txt"])
+    import matplotlib
+    matplotlib.use('TkAgg')
+    from werkzeug import secure_filename
+    from app import predictor
+    app.route('/', methods=['POST'])(upload_file)
+
+threading.Thread(target=load_fastai, daemon=True).start()
