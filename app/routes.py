@@ -26,7 +26,7 @@ def upload_file():
             save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(save_to)
             # get the prediction from the model:
-            pred_idx=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
+            pred_idx=predictor.model_predict(save_to, 'app')
             pred_class=generate_prediction(pred_idx)
             # now get the caption from the DB:
             lyric_caption=generate_caption(pred_idx)
@@ -65,7 +65,7 @@ def getSongData(fileName):
         return lyric
 
 # allowed image types
-ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 app.config['ALLOWED_EXTENSIONS']=ALLOWED_EXTENSIONS
 
 # is file allowed to be uploaded?
