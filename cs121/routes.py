@@ -50,11 +50,12 @@ def generate_caption(pred_idx):
     pred_class = classes[pred_idx]
     if pred_class == 'happy':
         randValue = random.randint(0,len(happy))
-
+        caption = 'Your Caption is: ' +  happy[randValue][2] + ' From: ' + happy[randValue][0] + ' by: '  + happy[randValue][1]
+        return caption
         # return getSongData('~/cs121/app/databases/happysongs.csv')
     if pred_class == 'sad':
         randValue = random.randint(0,len(sad))
-        caption = 'Your Caption is: ' +  disgusted[randValue][2] + ' From: ' + disgusted[randValue][0] + ' by: '  + disgusted[randValue][1]
+        caption = 'Your Caption is: ' +  sad[randValue][2] + ' From: ' + sad[randValue][0] + ' by: '  + sad[randValue][1]
         return caption
         # return getSongData('~/cs121/app/databases/sadsongs.csv')
     if pred_class == 'angry':
@@ -64,7 +65,7 @@ def generate_caption(pred_idx):
        # return getSongData('~/cs121/app/databases/angrysongs.csv')
     if pred_class == 'disgusted':
         randValue = random.randint(0,len(disgusted))
-        caption = 'Your Caption is: ' +  angry[randValue][2] + ' From: ' + angry[randValue][0] + ' by: '  + angry[randValue][1]
+        caption = 'Your Caption is: ' +  disgusted[randValue][2] + ' From: ' + disgusted[randValue][0] + ' by: '  + disgusted[randValue][1]
         return caption
 
        # return getSongData('~/cs121/app/databases/disgustedsongs.csv')
