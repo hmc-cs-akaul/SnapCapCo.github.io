@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<div id="container">
 <head>
   <title>Welcome to SnapCap</title>
   <link rel="icon" href="images/templogo.jpeg">
@@ -9,87 +10,58 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-
+  <link rel="stylesheet" type="text/css" href="view/style.css">
 </head>
 
+<div id="body">
 <body>
 
-  <div class="container-fluid">
+<div class="container-fluid">
 
-      <!-- title and logo -->
-      <h1 id="header">[ SnapCap ]</h1>
-      <img src="images/templogo.jpeg" alt="logo">
+    <!-- title and logo -->
+    <h1 id="header">[ SnapCap ]</h1>
+    <!-- <img src="images/templogo.jpeg" alt="logo"> -->
 
-      <br>
+    <!-- Left side: image, caption -->
 
-      <center>
-
-        <!-- webcam capture functionality (not done with style yet) -->
-        
-        <!-- <div id="cam-container">
-          <video autoplay="true" id="videoElement">
-
-          </video>
-            <script>
-              var video = document.querySelector("#videoElement");
-
-              if (navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ video: true })
-                .then(function (stream) {
-                  console.log(stream);
-                  video.srcObject = stream;
-                })
-                .catch(function (err0r) {
-                  if(err0r.name === 'TrackStartError'){
-                    console.log("track start error");
-                    }
-                  else {
-                    console.log("Something went wrong!");
-                    console.log(err0r.name + err0r.message);
-                    }
-
-                  });
-                }
-          </script>
-        </div> -->
-
-
-        <div class="no-display">
-
-          <!-- uploading photo functionality -->
-          <input id='file-input' class='no-display' type='file'
-              name='file' accept='image/*' style="display: none;"
-              onchange='showPicked(this)'>
+    <div id="leftwelcome">
+        <center>
+        Let us caption your photo using emotional intelligence! Follow these steps:<br><br>
+        </center>
+        <!-- Think it may be better to write this using html lists? -->
+        <div style="margin-left: 170px;">
+            1. Upload or take photo of your face<br>
+            2. Submit the photo for analysis<br>
+            3. Our program detects your mood in the photo and selects an appropriate song lyric as a caption<br />
+            4. Review your new caption<br>
+            5. Share to your favorite social media platform
         </div>
-
-        <!-- upload photo button and label -->
-        <button class="btn btn-default btn-file button" type="button"
-              onclick="showPicker()">
-            Upload photo
-        </button>
-        <div class='upload-label'>
-           <label id='upload-label'>No file chosen</label>
-       </div>
-
-        <br>
-
-        <!-- submit button, need to adjust to only "analyze" when there is input -->
-        <div class="analyze">
-          <button class="btn btn-default button" id = "analyze-button" onclick="analyze();">
-              Submit
-          </button>
-        </div>
-
-      </center>
-
-    <!-- displaying the captured photo -->
-    <div class="output">
-      <img id="image-picked" class="no-display" height="200">
     </div>
 
-  </div>
+    <!-- Right side: analysis, stats -->
+    <div id="rightwelcome">
+      Mood detected is HAPPY
+      <br><br>
+      <img src="https://photolemur.com/uploads/blog/14987422825954fe0ab26701.59203691.jpg">
+      Your caption:<br>
+      “If I was you, I’d wanna be me too”
+      <br><br>
+      Source: “Me Too” - Meghan Trainor”
+
+    </div>
+    <!-- need to make sure this div stays below others and above footer -->
+    <div id="getstarteddiv">
+      <button class="btn btn-default btn-file button" type="button" id="getstarted"
+              onclick="window.location.href='view/start.html'">
+          Get Started
+      </button>
+    </div>
+
+</div>
+
+
 </body>
+</div>
 
 <div id="footer">
   <footer>
@@ -98,14 +70,14 @@
           <!-- FILL IN w/ correct paths -->
           <li> <a href="index.html"> Home </a> </li>
           <li> | </li>
-          <li> <a href="start.html"> Get Started </a> </li>
+          <li> <a href="view/start.html"> Get Started </a> </li>
           <li> | </li>
-          <li> <a href="howitworks.html"> How it Works </a> </li>
+          <li> <a href="view/howitworks.html"> How it Works </a> </li>
           <li> | </li>
-          <li> <a href="about.html"> About Us </a> </li>
+          <li> <a href="view/about.html"> About Us </a> </li>
         </ul>
       </div>
   </footer>
 </div>
-
+</div>
 </html>
