@@ -88,16 +88,19 @@ def allowed_file(filename):
 
 def load_fastai():
     if os.environ.get("RUNNING_ON_HEROKU"):
+        print("Downloading Torch...")
         # Install torch separately because it's flippin' huge Pip uses
         # multiple GB of RAM trying to download it for some reason.
         r = requests.get("https://files.pythonhosted.org/packages/ac/23/a4b5c189dd624411ec84613b717594a00480282b949e3448d189c4aa4e47/torch-1.1.0-cp37-cp37m-manylinux1_x86_64.whl",
                          stream=True)
         with open("/tmp/torch.whl", "wb") as f:
             shutil.copyfileobj(r.raw, f)
+        print("Installing Torch...")
         subprocess.run(
             ["pip", "install", "--no-cache-dir", "-r", "/tmp/torch.whl"],
             check=True
         )
+        print("Installing the other packages...")
         subprocess.run(
             ["pip", "install", "--no-cache-dir", "-r", "fastai-requirements.txt"],
             check=True
