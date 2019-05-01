@@ -7,5 +7,6 @@ prod:
 	pipenv run gunicorn app:app --workers=1 --threads=1
 
 .PHONY: heroku
+heroku:
 	pipenv install
 	make prod
