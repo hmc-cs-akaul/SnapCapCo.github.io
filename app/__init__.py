@@ -85,7 +85,8 @@ def allowed_file(filename):
 
 def load_fastai():
     if os.environ.get("RUNNING_ON_HEROKU"):
-        subprocess.run(["pip", "install", "--no-cache-dir", "-r", "fastai-requirements.txt"])
+        subprocess.run(["pip", "install", "--no-cache-dir", "-r", "fastai-requirements.txt"],
+                       check=True)
     import matplotlib
     matplotlib.use('TkAgg')
     from werkzeug import secure_filename

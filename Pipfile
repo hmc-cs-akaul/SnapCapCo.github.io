@@ -9,6 +9,8 @@ fastai = "*"
 [packages]
 flask = "*"
 gunicorn = "*"
+# Installing this at runtime causes Heroku to run out of memory.
+torch = "*"
 
 [requires]
 python_version = "3.7"
