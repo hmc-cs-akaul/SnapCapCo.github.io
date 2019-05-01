@@ -1,3 +1,6 @@
+import matplotlib
+matplotlib.use('TkAgg')
+
 from flask import Flask
 from config import Config
 
