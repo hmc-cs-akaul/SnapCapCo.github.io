@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, request, send_from_directo
 from app import app
 import os
 from werkzeug import secure_filename
-from app import predictor 
+from app import predictor
 
 @app.route('/<filename>')
 def get_file(filename):
