@@ -8,5 +8,5 @@ prod:
 
 .PHONY: heroku
 heroku:
-	pipenv install
+	pip install fastai==1.0.52 --no-deps
 	make prod

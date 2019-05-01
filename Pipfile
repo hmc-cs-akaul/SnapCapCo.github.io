@@ -4,10 +4,20 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+fastai = "*"
 
 [packages]
 flask = "*"
 gunicorn = "*"
+pyyaml = "*"
+matplotlib = "*"
+pandas = "*"
+scipy = "*"
+requests = "*"
+fastprogress = "*"
+torch = "*"
+pillow = "*"
+torchvision = "*"
 
 [requires]
-python_version = "3"
+python_version = "3.7"
