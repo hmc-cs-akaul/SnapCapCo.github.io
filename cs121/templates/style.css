@@ -47,6 +47,8 @@ h4
   margin-right: 150px;
 }
 
+
+/* p tag for how it works page */
 #hiw_text p {
   font-size: 17px;
 }
@@ -112,6 +114,8 @@ p
   font-size: 180%;
 }
 
+
+/* style for button on welcome/start page */
 #getstarteddiv
 {
   text-align: center;
@@ -217,17 +221,6 @@ p
 #content-wrap {
   padding-bottom: 2.5rem;    /* Footer height */
 }
-
-/* #container{
-  min-height: 100%;
-  position: relative;
-  height: 100%;
-} */
-
-/* #body{
-  padding: 10px;
-  padding-bottom: 60px;
-} */
 
 .column {
   float: left;
