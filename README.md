@@ -9,10 +9,10 @@ The files are structured in MVC style, so that the controller mediates interacti
 
 
 ### 'view' pages'
-* 'index.html'
-* 'start.html'
-* 'about.html'
-* 'howitworks.html'
+* 'index.html' this is the page where the user uploads their selfie, or takes one and then downloads it and then uploads it.
+* 'start.html' this page gives a run-down of how to use our web-app
+* 'about.html' this page gives an overview of our group and motivation
+* 'howitworks.html' this page explores the behind-the-scenes of our web app
 
 
 
