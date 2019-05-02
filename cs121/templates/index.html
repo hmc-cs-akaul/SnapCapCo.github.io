@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="../../static/style.css"/>
 <html lang="en">
 <head>
   <title>Welcome to SnapCap</title>
-  <link rel="icon" href="images/templogo.jpeg">
+  <link rel="icon" src="images/templogo.jpeg">
   <script type="text/javascript" src="index.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,40 +19,11 @@
 
       <!-- title and logo -->
       <h1 id="header">[ SnapCap ]</h1>
-      <img src="templogo.jpeg" alt="picture">
+      <img src="images/templogo.jpeg" alt="picture">
 
       <br>
 
       <center>
-
-        <!-- webcam capture functionality (not done with style yet) -->
-
-        <!-- <div id="cam-container">
-          <video autoplay="true" id="videoElement">
-
-          </video>
-            <script>
-              var video = document.querySelector("#videoElement");
-
-              if (navigator.mediaDevices.getUserMedia) {
-                navigator.mediaDevices.getUserMedia({ video: true })
-                .then(function (stream) {
-                  console.log(stream);
-                  video.srcObject = stream;
-                })
-                .catch(function (err0r) {
-                  if(err0r.name === 'TrackStartError'){
-                    console.log("track start error");
-                    }
-                  else {
-                    console.log("Something went wrong!");
-                    console.log(err0r.name + err0r.message);
-                    }
-
-                  });
-                }
-          </script>
-        </div> -->
 
 
         <div class="no-display">
@@ -68,7 +38,7 @@
         <!-- upload photo button and label -->
         <form method=post enctype=multipart/form-data>
           <input type=file class="btn btn-default btn-file button" name=file>
-          <input class="btn btn-default button" id = "analyze-button" type=submit value=Upload>
+          <input class="btn btn-default button" id="analyze-button" type=submit value=Upload>
         </form>
 
         <br>

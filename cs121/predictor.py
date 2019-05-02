@@ -37,34 +37,41 @@ def model_predict(img_path, model_path):
     learn = load_model(model_path)
     img = open_image(img_path)
     pred_class,pred_idx,outputs = learn.predict(img)
-    if classes[pred_idx] == 'disgusted':
-        randValue = random.randint(0,len(disgusted))
-        caption = 'disgusted! ' + ' Your Caption is: ' +  disgusted[randValue][2] + ' From: ' + disgusted[randValue][0] + ' by: '  + disgusted[randValue][1]
-        return caption
-    elif classes[pred_idx] == 'angry':
-        randValue = random.randint(0,len(angry))
-        caption = 'angry! ' + ' Your Caption is: ' +  angry[randValue][2] + ' From: ' + angry[randValue][0] + ' by: '  + angry[randValue][1]
-        return caption
-    elif classes[pred_idx] == 'sad':
-        randValue = random.randint(0,len(sad))
-        caption = 'sad! ' + ' Your Caption is: ' +  sad[randValue][2] + ' From: ' + sad[randValue][0] + ' by: '  + sad[randValue][1]
-        return caption
-    else:
-        randValue = random.randint(0,len(happy))
-        caption = 'happy! ' + ' Your Caption is: ' +  happy[randValue][2] + ' From: ' + happy[randValue][0] + ' by: '  + happy[randValue][1] 
-        return caption
+   # if classes[pred_idx] == 'disgusted':
+       # randValue = random.randint(0,len(disgusted))
+        # caption = 'disgusted! ' + ' Your Caption is: ' +  disgusted[randValue][2] + ' From: ' + disgusted[randValue][0] + ' by: '  + disgusted[randValue][1]
+        #return caption
+   # elif classes[pred_idx] == 'angry':
+    #    randValue = random.randint(0,len(angry))
+     #   caption = 'angry! ' + ' Your Caption is: ' +  angry[randValue][2] + ' From: ' + angry[randValue][0] + ' by: '  + angry[randValue][1]
+    #    return caption
+   # elif classes[pred_idx] == 'sad':
+   #     randValue = random.randint(0,len(sad))
+   #     caption = 'sad! ' + ' Your Caption is: ' +  sad[randValue][2] + ' From: ' + sad[randValue][0] + ' by: '  + sad[randValue][1]
+   #     return caption
+   # else:
+   #     randValue = random.randint(0,len(happy))
+   #     caption = 'happy! ' + ' Your Caption is: ' +  happy[randValue][2] + ' From: ' + happy[randValue][0] + ' by: '  + happy[randValue][1] 
+     #   return caption
+    return classes[pred_idx]
 
-def generate_caption(pred_idx):
-    classes = ['happy', 'sad', 'disgusted', 'angry']
-    pred_class = classes[pred_idx]
+def generate_caption2(pred_class):
+    # classes = ['happy', 'sad', 'disgusted', 'angry']
+    # pred_class = classes[pred_idx]
     if pred_class == 'happy':
-        return getSongData('~/cs121/app/happysongs.csv')
+       # return "happy caption"
+        return getSongData('happysongs.csv')
     if pred_class == 'sad':
-        return getSongData('~/cs121/app/sadsongs.csv')
+        #return "sad caption"
+        return getSongData('sadsongs.csv')
     if pred_class == 'angry':
-        return getSongData('~/cs121/app/angrysongs.csv')
+        #return "angry caption"
+        return getSongData('angrysongs.csv')
     if pred_class == 'disgusted':
-        return getSongData('~/cs121/app/disgustedsongs.csv')
+       # return "disgusted caption"
+        return getSongData('disgustedsongs.csv')
+    else:   
+        return "could not find database to grab caption"
 
 def getSongData(fileName):
     with open(fileName, mode='r') as csvFile:

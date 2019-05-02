@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<link rel="stylesheet" type="text/css" href="../../static/style.css"/>
 <html lang="en">
 <div id="container">
 <head>
   <title>Welcome to SnapCap</title>
-  <link rel="icon" href="images/templogo.jpeg">
-  <script type="text/javascript" src="../index.js"></script>
+  <link id="logo" rel="icon" src="images/templogo.jpeg">
+  <script> console.log("after the logo link") </script>
+  <script type="text/javascript" src="index.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
@@ -16,12 +16,13 @@
 
 <div id="body">
 <body>
+  <script> console.log("in the body") </script>
 
   <div class="container-fluid">
 
       <!-- title and logo -->
       <h1 id="header">[ SnapCap ]</h1>
-      <img src="templogo.jpeg" alt="logo">
+      <img src="images/templogo.jpeg" alt="logo">
   </div>
   <div class="page_title">
       <h2> How It Works </h2>
@@ -43,7 +44,7 @@
     </p>
 
       <div class="image">
-        <img src="neural_net.png" alt="neural network diagram" height="60" width="45">
+        <img src="images/neural_net.png" alt="neural network diagram" height="60" width="45">
       </div>
 
       <h4>What's a neural net?</h4>
