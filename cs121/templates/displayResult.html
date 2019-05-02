@@ -1,14 +1,74 @@
-    <!doctype html>
-    <title>SnapCap</title>
-    {% if prediction %}
-        <h2>Your mood is {{ prediction }}!</h2>
-    {% endif %}
+<!DOCTYPE html>
+<!-- This page loads the results (a mood) -->
+<html lang="en">
+<head>
+<title>Welcome to SnapCap</title>
+<link rel="icon" href="images/templogo.jpeg">
+<script type="text/javascript" src="index.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body onclick=showPicked(photo)>
+
+<div class="container-fluid">
+
+<!-- Left side: image, caption -->
+<div id="leftresults">
+
+    <center>
+    <div class="output">
+    
     {% if filename %}
-        <h2>{{ filename }}</h2>
         <!--<img src="{{ url_for('get_file', filename=filename) }}">-->
         <img src="/static/{{ url_for('get_file', filename=filename) }}">
+        <p>{{ filename }}</p>
     {% endif %}
+
+    <!-- Caption input -->
     {% if caption %}
-        <h3> {{ caption }} </h3>
+        <input id="copyInput" value={{caption}}>
+        <br>
     {% endif %}
-   
+    <!-- Copy to clipboard button -->
+        <button class="btn btn-default btn-file button" type="button" onclick="copyToClipboard()">
+            Copy to clipboard
+        </button>
+
+    </div>
+    </center>
+</div>
+
+<!-- Right side: analysis, stats -->
+    <div id="rightresults">
+    {% if prediction %}
+        <h2>Your mood is {{prediction}}!</h2>
+    {% endif %}
+    
+    </div>
+
+</div>
+</body>
+
+<div id="footer">
+<footer>
+<div class="footerLinks">
+    <ul>
+        <!-- FILL IN w/ correct paths -->
+        <li> <a href="start.html"> Home </a> </li>
+        <li> | </li>
+    <li> <a href="index.html"> Get Started </a> </li>
+        <li> | </li>
+        <li> <a href="howitworks.html"> How it Works </a> </li>
+        <li> | </li>
+        <li> <a href="about.html"> About Us </a> </li>
+    </ul>
+    </div>
+</footer>
+</div>
+
+</html>
