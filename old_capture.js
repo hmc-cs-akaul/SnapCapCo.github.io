@@ -1,4 +1,4 @@
-
+(function() {
   // The width and height of the captured photo. We will set the
   // width to the value defined here, but the height will be
   // calculated based on the aspect ratio of the input stream.
@@ -19,17 +19,12 @@
   var photo = null;
   var startbutton = null;
 
-  function show_webcam() {
-    document.getElementById('camera').style.display = ""
-    document.getElementById('no_cam').remove();
-
-
+  function startup() {
     video = document.getElementById('video');
     canvas = document.getElementById('canvas');
     photo = document.getElementById('photo');
     startbutton = document.getElementById('startbutton');
     uploadbutton = document.getElementById('upload_photo_btn');
-    submitbutton = document.getElementById('analyze-button');
 
     navigator.mediaDevices.getUserMedia({video: true, audio: false})
     .then(function(stream) {
@@ -49,7 +44,7 @@
       }
 
       // user does not allow permission for webcam, display logo instead
-      logoImg = "<img id='no_cam' src='../images/templogo.jpeg' alt='logo'>";
+      logoImg = "<img src='../images/templogo.jpeg' alt='logo'>";
       div.innerHTML = logoImg;
     });
 
@@ -110,10 +105,6 @@
       //right now it is just black ^^
       // after taking photo, don't allow user to 'upload' a photo, so disable upload button
       uploadbutton.disabled = true;
-      submitbutton.disabled = true;
-
-      document.getElementById('dl-btn').style.display = ""
-
 
       var data = canvas.toDataURL('image/png');
       photo.setAttribute('src', data);
@@ -129,3 +120,5 @@
 
   // Set up our event listener to run the startup process
   // once loading is complete.
+   window.addEventListener('load', startup, false);
+})();

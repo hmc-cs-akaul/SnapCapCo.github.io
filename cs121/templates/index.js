@@ -1,7 +1,12 @@
 var el = x => document.getElementById(x);
 var canvas = document.getElementById('canvas')
 
-function showPicker(inputId) { el('file-input').click(); }
+function showPicker(inputId) {
+  el('file-input').click();
+  takephotobtn = document.getElementById('activate_webcame');
+  takephotobtn.disabled = true;
+
+}
 
 function showPicked(input) {
     el('upload-label').innerHTML = input.files[0].name;
@@ -27,36 +32,8 @@ function analyze() {
         // look is there is an img?
         console.log("there is a webcam pic");
 
-        // call analyze on webcam pic
-        // toDataURL... look up to see if can access in here
-        // var canvasData =
-
-
-        alert(document.images[0].src);
-
-        // console.log("Uploading...")
-        // var image = document.getElementById('photo').src;
-        // var form = document.getElementById('myForm');
-        // var formData = new FormData(form);
-        // formData.append("file", image);
-        // var xmlhttp = new XMLHttpRequest();
-        // xmlhttp.open("POST", "/signup");
-        //
-        // // check when state changes,
-        // xmlhttp.onreadystatechange = function() {
-        //
-        // if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        //     alert(xmlhttp.responseText);
-        //     }
-        // }
-        //
-        // xmlhttp.send(formData);
-        // console.log(formData.get('file'));
-        // console.log(formData.get('userID'));
-
       }
       else {
-        // var context = canvas.getContext('2d');
         console.log("there is no webcam pic or uploaded file");
         alert('Please select a file or take a photo to analyze!');
 
@@ -83,11 +60,9 @@ function analyze() {
       }
 
       var fileData = new FormData();
-      // need to edit here to take in one or the other (cam or file)
       // for file:
       fileData.append('file', uploadFiles[0]);
       // for webcam:
-      //fileData.append(cam.src);
 
       xhr.send(fileData);
       console.log("file data sent!");
