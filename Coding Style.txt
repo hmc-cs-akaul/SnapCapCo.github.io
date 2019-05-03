@@ -1,0 +1,36 @@
+﻿SnapCap Co
+Coding Style Document
+
+
+General
+* camelCase variable naming convention
+   * In variable/function naming, first word is lowercase, rest are uppercase
+* Curly brace on same line as function/loop signature
+   * ex. for(int i = 0; i < 5; i++) {
+* Use tabs, no spaces
+
+
+Python
+* In notebook files, keep code blocks short and wrap with explanatory text blocks
+   * Keeping code blocks short helps ensure that we are able to determine where errors originate 
+
+
+JavaScript
+* Add a comment above every function describing its purpose
+* Add a comment next to every variable describing its purpose
+* Leave a blank space between every function 
+* Put spaces between mathematical/logical operations
+   * ex. if (uploadFiles.length != 1)
+
+
+HTML
+* Add a comment above every div describing its purpose and components
+* Leave a blank space between every div
+* Use minimal spaces when describing attributes, do not put spaces around = signs
+   * ex. <button class="btn btn-default" type="button" id="getstarted">
+
+
+CSS
+* Type tags listed first (ex. body, h1, etc)
+* Class tags listed second (ex. .button)
+* Individual tags listed last (ex. #leftpanel, #footer)
