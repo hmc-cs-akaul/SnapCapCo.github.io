@@ -27,7 +27,14 @@ The files are structured in Model-View-Controller style, so that the controller 
 
 ### Misc
 * 'style.css'
-* 'songdata.csv.zip'
+* 'header.css'
+* 'footer.css'
+* 'displayResult.css'
+* 'index.css'
+* 'angrysongs.csv'
+* 'neutralsongs.csv'
+* 'happysongs.csv'
+* 'sadsongs.csv'
 * Coding Style Document outlines the standards of style to which our code is held
 
 ## Other information
