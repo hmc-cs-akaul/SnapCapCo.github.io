@@ -22,23 +22,30 @@ def upload_file():
         if file.filename == '':
             flash('No selected file')
             return redirect(request.url)
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            file.save(save_to)
+        # run prediction
+        try:
+            if file and allowed_file(file.filename):
+                filename = secure_filename(file.filename)
+                save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+                file.save(save_to)
             
-            #load in emotion detection model, load result into pred_class
-            pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
+                #load in emotion detection model, load result into pred_class
+                pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
             
-            #create array of generated info
-            pred_array = getSongData(pred_class)
-            pred_emotion = pred_array[0]
-            pred_caption = pred_array[1]
-            pred_song = pred_array[2]
-            pred_artist = pred_array[3]
+                #create array of generated info
+                pred_array = getSongData(pred_class)
+                pred_emotion = pred_array[0]
+                pred_caption = pred_array[1]
+                pred_song = pred_array[2]
+                pred_artist = pred_array[3]
             
-            #send generated info to displayResult
-            return render_template('displayResult.html', filename=filename, prediction=pred_emotion, caption=pred_caption, song=pred_song, artist=pred_artist)
+                #send generated info to displayResult
+                return render_template('displayResult.html', filename=filename, 
+                                       prediction=pred_emotion, caption=pred_caption, 
+                                       song=pred_song, artist=pred_artist)
+            # if entry is too large, reload page
+            except:
+                return render_template('index.html')
     return render_template('index.html')
 
 #get song data from matching song database csv
