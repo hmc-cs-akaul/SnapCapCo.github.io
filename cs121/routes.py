@@ -27,50 +27,13 @@ def upload_file():
             save_to=(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             file.save(save_to)
             pred_class=predictor.model_predict(save_to, '/home/ubuntu/cs121/app')
-            lyric_caption = generate_caption(pred_class)
-            # lyric_caption = "caption here" 
-            return render_template('displayResult.html', filename=filename, prediction=pred_class, caption=lyric_caption)
+            pred_array = pred_class.split('$')
+            pred_emotion = pred_array[0]
+            pred_caption = pred_array[1]
+            pred_song = pred_array[2]
+            pred_artist = pred_array[3]
+            return render_template('displayResult.html', filename=filename, prediction=pred_emotion, caption=pred_caption, song=pred_song, artist=pred_artist)
     return render_template('index.html')
-
-
-def generate_caption(pred_class):
-    # classes = ['happy', 'sad', 'disgusted', 'angry']
-    # pred_class = classes[pred_idx]
-    if pred_class == 'happy':
-       # return "happy caption"
-        return getSongData('/home/ubuntu/cs121/app/happysongs.csv')
-    if pred_class == 'sad':
-       # return "sad caption"
-        return getSongData('/home/ubuntu/cs121/app/sadsongs.csv')
-    if pred_class == 'angry':
-        return "angry caption"
-       # return getSongData('/home/ubuntu/cs121/app/angrysongs.csv')
-    if pred_class == 'disgusted':
-        return "disgusted caption"
-       # return getSongData('/home/ubuntu/cs121/app/disgustedsongs.csv')
-    else:
-        return "could not find database to grab caption"
-
-def getSongData(fileName):
-    with open(fileName, mode='r') as csvFile:
-        return fileName
-        reader = csv.reader(csvFile, delimiter=',')
-        for r in reader:
-            return r[0]
-        #return "created reader obj"
-        # row_count = sum(1 for row in reader)
-       # csvlist = list(reader)
-        csvlist = [r for r in reader]
-        return "made list"
-        row_count = len(csvlist)
-        
-        return "made row_count"
-        randValue = random.randint(0,row_count+1)
-        title = csvlist[randValue][0]
-        artist = csvlist[randValue][1]
-        lyric = csvlist[randValue][2]
-        songTuple = (title, artist, lyric)
-        return lyric
 
 # allowed image types
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
