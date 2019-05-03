@@ -1,0 +1,49 @@
+
+img
+{
+    width: 350px;
+}
+
+#getstarted
+{
+  background-color: rgb(255, 255, 255);
+  color: rgb(29, 23, 80);
+  font-size: 180%;
+  margin-top: 80px;
+}
+
+#getstarted:hover
+{
+  background-color: rgb(252, 231, 255);
+}
+
+#getstarteddiv
+{
+  text-align: center;
+  position:relative;
+  width: 100px;
+  bottom:0px;
+  right:25%;
+  left:50%;
+  margin-left: -85px; /* random number... */
+}
+
+#leftwelcome
+{
+  float: left;
+  width: 50%;
+  height: 675px;
+  font-size: 130%;
+  padding-top: 150px;
+  background:rgb(216, 223, 238);
+}
+
+#rightwelcome
+{
+  float: right;
+  width: 50%;
+  height: 675px;
+  font-size: 130%;
+  padding-top: 100px;
+  text-align: center;
+}

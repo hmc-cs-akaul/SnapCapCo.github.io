@@ -1,0 +1,24 @@
+img
+{
+    width: 70px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.column {
+    margin-top: 30px;
+    float: left;
+    width: 100px;
+    padding: 5px;
+}
+  
+.row
+{
+    margin-left: 39%;
+    margin-right: auto;
+}
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}

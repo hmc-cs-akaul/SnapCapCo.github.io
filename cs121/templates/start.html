@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<div id="container">
 <head>
   <title>Welcome to SnapCap</title>
   <link rel="icon" src="images/templogo.jpeg">
@@ -11,16 +10,17 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="start.css">
+  <link rel="stylesheet" type="text/css" href="header.css">
+  <link rel="stylesheet" type="text/css" href="footer.css">
 </head>
 
-<div id="body">
+<div id="header">
+  <h1><strong>[ SnapCap ]</strong></h1>
+</div>
+<div id="headerstripe"></div>
+
 <body>
-
-<div class="container-fluid">
-
-    <!-- title and logo -->
-    <h1 id="header">[ SnapCap ]</h1>
-    <!-- <img src="images/templogo.jpeg" alt="logo"> -->
 
     <!-- Left side: image, caption -->
 
@@ -29,13 +29,20 @@
         Let us caption your photo using emotional intelligence! Follow these steps:<br><br>
         </center>
         <!-- Think it may be better to write this using html lists? -->
-        <div style="margin-left: 170px;">
+        <div style="margin-left: 110px;">
             1. Upload or take photo of your face<br>
             2. Submit the photo for analysis<br>
-            3. Our program detects your mood in the photo and selects an appropriate song lyric as a caption<br />
+            3. We detect your mood in the photo and select a song lyric caption<br />
             4. Review your new caption<br>
             5. Share to your favorite social media platform
         </div>
+
+        <div id="getstarteddiv">
+            <button class="btn btn-default btn-file button" type="button" id="getstarted"
+                    onclick="window.location.href='index.html'">
+                Get Started
+            </button>
+          </div>
     </div>
 
     <!-- Right side: analysis, stats -->
@@ -50,18 +57,9 @@
 
     </div>
     <!-- need to make sure this div stays below others and above footer -->
-    <div id="getstarteddiv">
-      <button class="btn btn-default btn-file button" type="button" id="getstarted"
-              onclick="window.location.href='index.html'">
-          Get Started
-      </button>
-    </div>
-
-</div>
-
+    
 
 </body>
-</div>
 
 <div id="footer">
   <footer>
@@ -79,5 +77,5 @@
       </div>
   </footer>
 </div>
-</div>
+
 </html>
