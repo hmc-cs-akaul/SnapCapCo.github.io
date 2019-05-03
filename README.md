@@ -26,7 +26,7 @@ The files are structured in Model-View-Controller style, so that the controller 
 ### Misc
 * 'style.css'
 * 'songdata.csv.zip'
-
+* Coding Style Document outlines the standards of style to which our code is held
 
 ## Other information
 This project was created as a class project for CSCI121 at Harvey Mudd College by AP, AK, AR, KJ, and LC.
