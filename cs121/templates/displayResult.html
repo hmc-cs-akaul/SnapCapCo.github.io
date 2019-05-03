@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!-- This page loads the results (a mood) -->
+<html lang="en">
+<head>
+<title>Welcome to SnapCap</title>
+<link rel="icon" href="templogo.jpeg">
+<script type="text/javascript" src="index.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="header.css">
+<link rel="stylesheet" type="text/css" href="footer.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="displayResult.css">
+
+</head>
+
+
+<div id="header">
+        <h1><strong>[ SnapCap ]</strong></h1>
+
+</div>
+<div id="headerstripe"></div>
+
+<body onclick=showPicked(photo)>
+
+<div class="container-fluid">
+
+<!-- Left side: image, caption -->
+<div id="leftresults">
+
+    <center>
+    <div class="output">
+    
+        {% if prediction %}
+            <h3 id="moodheader">Mood detected: <strong>{{prediction}}</strong>!</h3>
+        {% endif %}
+
+        {% if filename %}
+            <!--<img src="{{ url_for('get_file', filename=filename) }}">-->
+            <img id="inputphoto" src="/static/{{ url_for('get_file', filename=filename) }}">
+            <p>{{ filename }}</p>
+        {% endif %}
+
+    </div>
+    </center>
+</div>
+
+<!-- Right side: analysis, stats -->
+    <center>
+    <div id="rightresults">
+	   <!-- <h3> Your Caption: </h3>-->
+	<h3 id="captionheader">Your Caption:</h3>
+        <!-- Caption input -->
+        {% if caption %}
+            <input id="copyinput" value="{{caption}}">
+            <br>
+        {% endif %}
+	<h4>From: "{{song}}" - {{artist}}</h4>
+        <!-- Copy to clipboard button -->
+        <button class="btn btn-default btn-file button"
+                type="button"
+                onclick="copyToClipboard()">
+            Copy to clipboard
+        </button>
+        <br>
+        <button id="retrybutton"
+                class="btn btn-default btn-file button"
+                type="button"
+                onclick="window.location.href='/'">
+            Retry
+        </button>
+    
+    </div>
+    </center>
+
+</div>
+</body>
+
+<div id="footer">
+        <footer>
+          <div class="footerLinks">
+              <ul>
+                <!-- FILL IN w/ correct paths -->
+                <li> <a href="start.html"> Home </a> </li>
+                <li> | </li>
+                <li> <a href="/"> Get Started </a> </li>
+                <li> | </li>
+                <li> <a href="howitworks.html"> How it Works </a> </li>
+                <li> | </li>
+                <li> <a href="about.html"> About Us </a> </li>
+              </ul>
+            </div>
+        </footer>
+      </div>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<div id="container">
+<head>
+  <title>Welcome to SnapCap</title>
+  <link id="logo" rel="icon" src="images/templogo.jpeg">
+  <script type="text/javascript" src="index.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="howitworks.css">
+  <link rel="stylesheet" type="text/css" href="header.css">
+  <link rel="stylesheet" type="text/css" href="footer.css">
+</head>
+
+<div id="header">
+    <h1><strong>[ SnapCap ]</strong></h1>
+</div>
+<div id="headerstripe"></div>
+
+<div id="body">
+<body>
+
+  <h2> How It Works </h2>
+
+  <div id="hiw_text">
+    <p>
+      SnapCap uses deep learning to analyze your mood in the photo, then 
+      generate an emotionally compatible caption.
+      We’ve trained a resnet-34 neural net on 26,000 images of four
+      different moods, all classified by the emotions exhibited by the
+      people in those photos. So, we run your image through our neural net,
+      and get an emotional analysis of your face as it appears in the photo!
+    </p>
+
+    <p>
+      Next, we use a python analysis program to calculate a song that best fits 
+      your mood, then we generate a caption from this song. First, we categorize 
+      songs by the key that they are in, then further seperate them based on
+      their major or  minor keys. Using music theory, we can identify the emotion
+      of some songs based on their keys, for example, C Major usually indicates
+      happy songs, whereas C Minor indicates a sad song. In the final step of the 
+      analysis, our program further separates songs by  factors such as tempo, 
+      valence, and energy. Once we have accurately identified a song that matches
+      the mood in your photo, we pull a line from that song’s lyrics to caption 
+      your photo!
+    </p>
+
+      <div class="image">
+        <img src="neural_net.png" alt="neural network diagram" height="60" width="45">
+      </div>
+
+      <h4>What's a neural net?</h4>
+      <p>
+        Neural Nets are trained by detecting features in an input, for example a photo.
+        Given images that are labeled with a mood, the model learns to generalize its predictions based on this
+        training data. Our neural net has an error rate of 22 percent. It makes a prediction given its learning of
+        features from the four moods it was trained on. These are "happy," "sad," "angry," and "neutral."
+      </p>
+
+      <br>
+      <h4>Want to see our code?</h4>
+      <p><a id="github" href="https://github.com/SnapCapCo/SnapCapCo.github.io" target="_blank">SnapCapCo Github</a></p>
+      <br><br>
+
+  </div>
+
+</body>
+
+<div id="footer">
+  <footer>
+    <div class="footerLinks">
+        <ul>
+          <!-- FILL IN w/ correct paths -->
+          <li> <a href="start.html"> Home </a> </li>
+          <li> | </li>
+          <li> <a href="/"> Get Started </a> </li>
+          <li> | </li>
+          <li> <a href="howitworks.html"> How it Works </a> </li>
+          <li> | </li>
+          <li> <a href="about.html"> About Us </a> </li>
+        </ul>
+      </div>
+  </footer>
+</div>
+</div>
+</html>

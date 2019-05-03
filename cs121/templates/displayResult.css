@@ -1,0 +1,45 @@
+#leftresults
+{
+  float: left;
+  width: 50%;
+  height: 675px;
+  background:rgb(216, 223, 238);
+}
+
+#rightresults
+{
+  float: right;
+  width: 50%;
+  height: 675px;
+  background:rgb(235, 239, 248);
+}
+
+#inputphoto
+{
+    margin: 100px;
+    height: auto;
+    width: 400px;
+}
+
+#copyinput
+{
+    height:60px;
+    width: 400px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+#retrybutton
+{
+    margin-top: 20px;
+}
+
+#captionheader
+{
+  padding-top: 200px;
+}
+
+#moodheader
+{
+  padding-top: 100px;
+}

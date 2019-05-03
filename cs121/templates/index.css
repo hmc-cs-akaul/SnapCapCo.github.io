@@ -1,0 +1,24 @@
+img
+{
+    width: 250px;
+    border-radius: 8px;
+}
+
+#inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+    z-index: -1;
+}
+
+#logo
+{
+    margin-top: 20px;
+}
+
+#output
+{
+    margin-top: 20px;
+}

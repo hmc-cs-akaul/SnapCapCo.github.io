@@ -1,0 +1,87 @@
+body
+{
+  background:rgb(235, 239, 248);
+  font-family: Tahoma, Geneva, sans-serif;
+  color:rgb(18, 34, 88);
+  margin:0;
+  padding:0;
+}
+
+img
+{
+  width: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+label
+{
+  font-family: Tahoma, Geneva, sans-serif;
+  font-weight:normal;
+  font-size: 80%;
+  color: rgb(100, 100, 100);
+}
+
+h2
+{
+  color:rgb(39, 31, 160);
+  font-weight: bold;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+h4
+{
+  color:rgb(39, 31, 160);
+  font-weight: bold;
+  margin-left: 150px;
+  margin-right: 150px;
+}
+
+p
+{
+  margin-left: 150px;
+  margin-right: 150px;
+  font-size: 120%;
+}
+
+.button
+{
+  background-color: rgb(255, 255, 255);
+  color: rgb(41, 31, 136);
+  text-align: center;
+  margin: auto;
+}
+
+.button:hover
+{
+    background-color: rgb(252, 231, 255);
+    text-align: center;
+    margin: auto;
+}
+
+#imageHolder
+{
+  width: 20%;
+  height: 20%;
+}
+
+#cam-container {
+  margin: 0px auto;
+  width: 500px;
+  height: 375px;
+  border: 10px #333 solid;
+}
+
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+
+#copyInput
+{
+  margin-top: 250px;
+  margin-bottom: 10px;
+}
