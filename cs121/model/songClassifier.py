@@ -4,7 +4,7 @@ import csv
 with open('songDatabase.csv') as csvfile:
     csvReader = csv.reader(csvfile, delimiter=',')
     lineCount = 0
-    happy, sad, angry, disgust = [], [], [], []
+    happy, sad, angry, neutral = [], [], [], []
 
     for row in csvReader:
         if lineCount < 2:
@@ -29,7 +29,7 @@ with open('songDatabase.csv') as csvfile:
             if key == 2 and mode == 1 or key == 9 and mode == 1:
                 emotion = "happy"
             elif key == 3 and mode == 0:
-                emotion = "disgust"
+                emotion = "neutral"
             elif key == 6 and mode == 0:
                 emotion = "sad"
             elif key == 11 and mode == 1:
@@ -45,7 +45,7 @@ with open('songDatabase.csv') as csvfile:
                 # more positive song
                 elif valence > 0.6:
                     if tempo <= 119:
-                        emotion = "disgust"
+                        emotion = "neutral"
                     elif tempo > 119:
                         emotion = "happy"
 
@@ -80,9 +80,9 @@ with open('sadsongs.csv', mode='w') as csvfile:
     for row in sad:
         database.writerow(row)
 
-with open('disgustedsongs.csv', mode='w') as csvfile:
+with open('neutralsongs.csv', mode='w') as csvfile:
     database = csv.writer(csvfile, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    for row in disgust:
+    for row in neutral:
         database.writerow(row)
 
 
