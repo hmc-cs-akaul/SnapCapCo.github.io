@@ -38,8 +38,8 @@
 
     <!-- upload photo button and label -->
     <form method=post enctype=multipart/form-data>
-      <input id="inputfile" type=file name=file>
-      <label class="btn btn-default button" for="inputfile">Choose a file</label>
+      <input type=file name=file>
+      <!-- <label class="btn btn-default button" for="inputfile">Choose a file</label> -->
       <input class="btn btn-default button" type=submit value=Upload>
     </form>
 
@@ -49,7 +49,7 @@
 
   <!-- displaying the captured photo -->
   <div id="output">
-    <img id="image-picked" height="200" style="display: none;">
+    <img id="image-picked" height="200">
   </div>
 
 </body>
