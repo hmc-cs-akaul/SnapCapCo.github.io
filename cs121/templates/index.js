@@ -41,7 +41,7 @@ function analyze() {
 // adapted from W3schools
 function copyToClipboard()
 {
-  var copyText = document.getElementById("copyInput");
+  var copyText = document.getElementById("copyinput");
   copyText.select();
   document.execCommand("copy");
 }
