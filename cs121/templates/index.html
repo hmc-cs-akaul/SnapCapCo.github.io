@@ -24,38 +24,34 @@
 
 <body>
 
-  <div class="container-fluid">
+  <img id="logo" src="images/templogo.jpeg" alt="picture">
 
-      <img src="images/templogo.jpeg" alt="picture">
+  <center>
 
-      <center>
+      <!-- uploading photo functionality -->
+      <input id='inputfile' type='file'
+          name='file' accept='image/*' style="display: none;"
+          onchange='showPicked(this)'>
+      
+        
+    <h3>Make sure the photo is one of your face!</h3>
 
-        <div class="no-display">
+    <!-- upload photo button and label -->
+    <form method=post enctype=multipart/form-data>
+      <input id="inputfile" type=file name=file>
+      <label class="btn btn-default button" for="inputfile">Choose a file</label>
+      <input class="btn btn-default button" type=submit value=Upload>
+    </form>
 
-          <!-- uploading photo functionality -->
-          <input id='file-input' class="no-display" type='file'
-              name='file' accept='image/*' style="display: none;"
-              onchange='showPicked(this)'>
-              Make sure the photo is one of your face!
-        </div>
-
-        <!-- upload photo button and label -->
-        <form method=post enctype=multipart/form-data>
-          <input type=file class="btn btn-default btn-file button" name=file>
-          <input class="btn btn-default button" type=submit value=Upload>
-        </form>
-
-        </div>
-
-      </center>
-
-
-    <!-- displaying the captured photo -->
-    <div class="output">
-      <img id="image-picked" class="no-display" height="200">
     </div>
 
+  </center>
+
+  <!-- displaying the captured photo -->
+  <div id="output">
+    <img id="image-picked" height="200" style="display: none;">
   </div>
+
 </body>
 
 <div id="footer">

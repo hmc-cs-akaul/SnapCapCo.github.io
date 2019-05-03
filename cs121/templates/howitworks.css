@@ -8,3 +8,13 @@ img
 {
     font-size: 17px;
 }
+
+#github
+{
+    color: rgb(176, 28, 196);
+}
+
+#github:hover
+{
+    color: rgb(121, 8, 136);
+}
