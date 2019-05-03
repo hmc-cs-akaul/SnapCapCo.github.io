@@ -17,8 +17,8 @@
 #inputphoto
 {
     margin: 100px;
-    height: 200px;
-    width: auto;
+    height: auto;
+    width: 400px;
 }
 
 #copyinput
@@ -32,4 +32,9 @@
 #retrybutton
 {
     margin-top: 20px;
+}
+
+#captionheader
+{
+  margin-top: 200px;
 }
