@@ -12,8 +12,8 @@ with open('songDatabase.csv') as csvfile:
         else:
             songName = row[1]
             artist = row[2]
-            #danceability = float(row[3])
-            #energy = int(row[3])
+            danceability = float(row[3])
+            energy = int(row[3])
             print("linecount:", lineCount, " ", row[5])
             key = int(row[5])
             loudness = row[6]
