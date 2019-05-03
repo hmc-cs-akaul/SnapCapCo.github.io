@@ -14,8 +14,6 @@ from fastai.vision import *
 from flask import Flask, redirect, url_for, request, render_template
 from werkzeug.utils import secure_filename
 
-
-
 #load the model
 def load_model(model_path):
     path = Path(model_path)
