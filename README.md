@@ -30,5 +30,5 @@ The files are structured in Model-View-Controller style, so that the controller 
 
 ## Other information
 This project was created as a class project for CSCI121 at Harvey Mudd College by AP, AK, AR, KJ, and LC.
-How to run on your machine:
+
 
