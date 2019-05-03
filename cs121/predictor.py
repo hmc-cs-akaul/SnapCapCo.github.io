@@ -19,7 +19,7 @@ from werkzeug.utils import secure_filename
 #load model
 def load_model(model_path):
     path = Path(model_path)
-    classes = ['happy', 'sad','disgustedzip', 'angryzip']
+    classes = ['angry', 'disgusted','happy', 'sad']
     data2 = ImageDataBunch.single_from_classes(path, classes, ds_tfms=get_transforms(), size=224).normalize(imagenet_stats)
     learn = create_cnn(data2, models.resnet34)
     learn.load('stage-2')
@@ -33,52 +33,23 @@ def model_predict(img_path, model_path):
     sad = [["God's Plan", 'Drake', "I only love my bed and my momma, I'm sorry"], ["God's Plan", 'Drake', "don't start no trouble with me tryna keep it peaceful is a struggle for me"], ['In My Feelings', 'Drake', "Cause I've been goin' off and they don't know when it's stoppin"], ['In My Feelings', 'Drake', "Say you'll never ever leave from beside me 'cause I want you, and I need you and I'm down for you always"], ['Lucid Dreams', 'Juice WRLD', "I still see your shadows in my room can't take back the love that I gave you"], ['Lucid Dreams', 'Juice WRLD', 'I thought you were the one listening to my heart instead of my head'], ['Perfect', 'Ed Sheeran', "I'm dancing in the dark, with you between my arms"], ['Perfect', 'Ed Sheeran', "But darling, just kiss me slow, your heart is all I own and in your eyes you're holding mine"], ['Taste (feat. Offset)', 'Tyga', 'she can get a taste'], ['Taste (feat. Offset)', 'Tyga', "Whole lotta styles, can't even pronounce the name You don't even got no style, see you on my Instagram"], ['Nevermind', 'Dennis Lloyd', 'What if I left and it made no sense'], ['Nevermind', 'Dennis Lloyd', "I ain't gonna fall back down now"], ['Eastside (with Halsey & Khalid)', 'benny blanco', "My love is yours if you're willing to take it give me your heart 'cause I ain't gonna break it"], ['Eastside (with Halsey & Khalid)', 'benny blanco', 'Just take my hand and come with me'], ['Perfect Duet (Ed Sheeran & Beyonc?)', 'Ed Sheeran', 'I found a love for me'], ['Perfect Duet (Ed Sheeran & Beyonc?)', 'Ed Sheeran', 'Now I know I have met an angel in person'], ['1-800-273-8255', 'Logic', 'I wanna feel alive'], ['1-800-273-8255', 'Logic', "I feel like I'm out of my mind\r"], ['Perfect', 'Ed Sheeran', 'Darling, just dive right in and follow my lead'], ['Perfect', 'Ed Sheeran', "We are still kids but we're so in love"], ['Location', 'Khalid', "Let's ride the vibrations"], ['Location', 'Khalid', "I don't need nothing else but you"], ['Solo Dance', 'Martin Jensen', 'Just wanna dance, dance, dance'], ['Solo Dance', 'Martin Jensen', "I'm here to fool around"], ['One Dance', 'Drake', "that's why I need a one dance"], ['One Dance', 'Drake', "Cause if you're down"], ['There for You', 'Martin Garrix', 'Somewhere I lost a piece of me smoking cigarettes on balconies'], ['There for You', 'Martin Garrix', "Love is a road that goes both ways, when your tears roll down your pillow like a river, I'll be there for you"], ['Side To Side', 'Ariana Grande', "Rappers in they feelings cause they feelin' me"], ['Side To Side', 'Ariana Grande', 'Uh, I give zero fucks and I got zero chill in me'], ['Cold Water (feat. Justin Bieber & M1)', 'Major Lazer', 'Everybody gets high sometimes, you know'], ['Cold Water (feat. Justin Bieber & M1)', 'Major Lazer', 'Cause we all get lost sometimes, you know?'], ['Bank Account', '21 Savage', "I pull up in 'Rari's and shit, with choppers and Harley's and shit"]]
     angry = [['rockstar (feat. 21 Savage)', 'Post Malone', 'Man, I feel just like a rockstar'], ['rockstar (feat. 21 Savage)', 'Post Malone', "Your wifey say I'm lookin' like a whole snack"], ['Better Now', 'Post Malone', 'Woulda gave you anything, woulda gave you everything'], ['Better Now', 'Post Malone', "I swear to you, I'll be okay you're only the love of my life"], ['no tears left to cry', 'Ariana Grande', "Ain't got no tears left to cry"], ['no tears left to cry', 'Ariana Grande', "Right now, I'm in a state of mind I wanna be in, like, all the time"], ['Youngblood', '5 Seconds of Summer', 'I give and I give and I give and you take, give and you take'], ['Youngblood', '5 Seconds of Summer', 'Say you want me out of your life'], ['Love Lies (with Normani)', 'Khalid', 'Are you down for the ride?'], ['Love Lies (with Normani)', 'Khalid', "Don't be afraid to tell me if you ain't with it"], ['I Fall Apart', 'Post Malone', "She fooled me twice and it's all my fault"], ['I Fall Apart', 'Post Malone', "Never caught a feelin' this hard harder than the liquor I pour"], ['Never Be the Same', 'Camila Cabello', 'Just one hit of you, I knew I never ever, ever be the same'], ['Never Be the Same', 'Camila Cabello', "I'm a sucker for the way that you move, babe and I could try to run, but it would be useless"], ['Wolves', 'Selena Gomez', "I've been running with the wolves to get to you"], ['Wolves', 'Selena Gomez', 'I wanna feel the way that we did that summer night '], ['changes', 'XXXTENTACION', "You're changing, I can't stand it"], ['changes', 'XXXTENTACION', "My heart can't take this damage And the way I feel, can't stand it"], ['In My Mind', 'Dynoro', "The dreams we have, the love we share This is what we're waiting for"], ['In My Mind', 'Dynoro', 'In my mind, in my head'], ['Thunder', 'Imagine Dragons', 'I was lightning before the thunder'], ['Thunder', 'Imagine Dragons', 'I was dreaming of bigger things'], ['Call Out My Name', 'The Weeknd', "Girl, call out my name, and I'll be on my way"], ['Call Out My Name', 'The Weeknd', 'I made sure I held you close to me'], ['FEFE (feat. Nicki Minaj & Murda Beatz)', '6ix9ine', "Colorful hair, don't care"], ['FEFE (feat. Nicki Minaj & Murda Beatz)', '6ix9ine', 'Eeny, meeny, miny, moe'], ['Fuck Love (feat. Trippie Redd)', 'XXXTENTACION', "Please don't throw your love away, huh"], ['Fuck Love (feat. Trippie Redd)', 'XXXTENTACION', 'Baby, I need you in my life, in my life'], ['Silence', 'Marshmello', "Yeah, I'd rather be a lover than a fighter"], ['Silence', 'Marshmello', "I've been quiet for too long"], ['God is a woman', 'Ariana Grande', "You'll believe God is a woman"], ['God is a woman', 'Ariana Grande', 'So, baby, take my hand, save your soul'], ['Plug Walk', 'Rich The Kid', 'I make money when I talk'], ['Plug Walk', 'Rich The Kid', "It's the plug tryna call me (skrrt, skrrt)"], ['lovely (with Khalid)', 'Billie Eilish', 'Heart made of glass, my mind of stone']]
     disgusted = [['Nice For What', 'Drake', "said you'd be there for me"], ['Nice For What', 'Drake', 'You know dark days, you know hard times'], ['New Rules', 'Dua Lipa', "But my love, he doesn't love me"], ['New Rules', 'Dua Lipa', "don't let him in you'll have to kick him out again"], ['Shape of You', 'Ed Sheeran', 'Your love was handmade for somebody like me'], ['Shape of You', 'Ed Sheeran', 'We push and pull like a magnet do although my heart is falling too'], ['River (feat. Ed Sheeran)', 'Eminem', "I've been a liar, been a thief"], ['River (feat. Ed Sheeran)', 'Eminem', "If all it's gonna cause is pain"], ['Jackie Chan', 'Ti?sto', "She just wanna do it for the 'Gram (you know, you know)"], ['Jackie Chan', 'Ti?sto', '*Now your bitch wanna kick it, Jackie Chan'], ['Finesse (Remix) [feat. Cardi B]', 'Bruno Mars', "We out here drippin' in finesse"], ['Finesse (Remix) [feat. Cardi B]', 'Bruno Mars', "Yeah, we got it goin' on, got it goin' on"], ['Happier', 'Marshmello', 'I want you to be happier, I want you to be happier'], ['Happier', 'Marshmello', 'I want to see you smile'], ['Rise', 'Jonas Blue', "We're gonna ri-ri-ri-ri-rise 'til we fall"], ['Rise', 'Jonas Blue', "They say we're too savage"], ['2002', 'Anne-Marie', 'Oops, I got 99 problems singing bye, bye, bye'], ['2002', 'Anne-Marie', 'Dancing on the hood in the middle of the woods'], ['Let Me Go (with Alesso, Florida Georgia Line & watt)', 'Hailee Steinfeld', 'Someone will love you, let me go'], ['Let Me Go (with Alesso, Florida Georgia Line & watt)', 'Hailee Steinfeld', 'Good on paper, picture perfect'], ['Feel It Still', 'Portugal. The Man', "Ooh woo, I'm a rebel just for kicks, now"], ['Feel It Still', 'Portugal. The Man', "Might've had your fill, but you feel it still"], ['1, 2, 3 (feat. Jason Derulo & De La Ghetto)', 'Sofia Reyes', "If love's the game, let's play a million times"], ['1, 2, 3 (feat. Jason Derulo & De La Ghetto)', 'Sofia Reyes', 'Love how you count it out for me, babe'], ['Shape of You', 'Ed Sheeran', 'Your love was handmade for somebody like me'], ['Shape of You', 'Ed Sheeran', "I'm in love with the shape of you"], ["I'm the One", 'DJ Khaled', "I'm the best yet, and yet, my best is yet to come"], ["I'm the One", 'DJ Khaled', "Yeah, you're lookin' at the truth, the money never lie no"], ['Unforgettable', 'French Montana', '*A fucking good time, never hurt nobody'], ['Unforgettable', 'French Montana', "It's not good enough for me, since I been with you"], ['Attention', 'Charlie Puth', "You've been runnin' round, runnin' round, runnin' round throwin' that dirt all on my name"]]
-    classes = ['happy','sad','disgusted','angry']
+    classes = ['angry', 'disgusted','happy', 'sad']
     learn = load_model(model_path)
     img = open_image(img_path)
     pred_class,pred_idx,outputs = learn.predict(img)
-   # if classes[pred_idx] == 'disgusted':
-       # randValue = random.randint(0,len(disgusted))
-        # caption = 'disgusted! ' + ' Your Caption is: ' +  disgusted[randValue][2] + ' From: ' + disgusted[randValue][0] + ' by: '  + disgusted[randValue][1]
-        #return caption
-   # elif classes[pred_idx] == 'angry':
-    #    randValue = random.randint(0,len(angry))
-     #   caption = 'angry! ' + ' Your Caption is: ' +  angry[randValue][2] + ' From: ' + angry[randValue][0] + ' by: '  + angry[randValue][1]
-    #    return caption
-   # elif classes[pred_idx] == 'sad':
-   #     randValue = random.randint(0,len(sad))
-   #     caption = 'sad! ' + ' Your Caption is: ' +  sad[randValue][2] + ' From: ' + sad[randValue][0] + ' by: '  + sad[randValue][1]
-   #     return caption
-   # else:
-   #     randValue = random.randint(0,len(happy))
-   #     caption = 'happy! ' + ' Your Caption is: ' +  happy[randValue][2] + ' From: ' + happy[randValue][0] + ' by: '  + happy[randValue][1] 
-     #   return caption
-    return classes[pred_idx]
-
-def generate_caption2(pred_class):
-    # classes = ['happy', 'sad', 'disgusted', 'angry']
-    # pred_class = classes[pred_idx]
-    if pred_class == 'happy':
-       # return "happy caption"
-        return getSongData('happysongs.csv')
-    if pred_class == 'sad':
-        #return "sad caption"
-        return getSongData('sadsongs.csv')
-    if pred_class == 'angry':
-        #return "angry caption"
-        return getSongData('angrysongs.csv')
-    if pred_class == 'disgusted':
-       # return "disgusted caption"
-        return getSongData('disgustedsongs.csv')
-    else:   
-        return "could not find database to grab caption"
-
-def getSongData(fileName):
-    with open(fileName, mode='r') as csvFile:
-        row_count = sum(1 for row in csvFile)
-        randValue = random.randint(0,row_count+1)
-        title = csvFile[randValue][0]
-        artist = csvFile[randValue][1]
-        lyric = csvFile[randValue][2]
-        songTuple = (title, artist, lyric)
-        return lyric
+    if classes[pred_idx] == 'disgusted':
+        randValue = random.randint(0,len(disgusted))
+        caption = 'disgusted$' +  disgusted[randValue][2] + '$' + disgusted[randValue][0] + '$'  + disgusted[randValue][1]
+        return caption
+    elif classes[pred_idx] == 'angry':
+        randValue = random.randint(0,len(angry))
+        caption = 'angry$' + angry[randValue][2] + '$' + angry[randValue][0] + '$'  + angry[randValue][1]
+        return caption
+    elif classes[pred_idx] == 'sad':
+        randValue = random.randint(0,len(sad))
+        caption = 'sad$' +  sad[randValue][2] + '$' + sad[randValue][0] + '$'  + sad[randValue][1]
+        return caption
+    else:
+        randValue = random.randint(0,len(happy))
+        caption = 'happy$' +  happy[randValue][2] + '$' + happy[randValue][0] + '$'  + happy[randValue][1] 
+        return caption
