@@ -1,13 +1,13 @@
 # SnapCap
 ## Project Vision
+Our web-application adds emotional intelligence and creativity to the caption creation process. We trained a neural network on images of faces to detect emotion from photos. Then we built a program to analyze song metrics in order to classify lyrics into emotion categories. When a user uploads a photo, we use these two analyses to produce a lyric caption that matches their detected mood. 
 
 
+## Files
+The files are structured in Model-View-Controller style, so that the controller mediates interaction between the model and the view.
 
-## files
-The files are structured in MVC style, so that the controller mediates interaction between the model and the view.
 
-
-### 'view' pages'
+### 'View' pages'
 * 'index.html'
 * 'start.html'
 * 'about.html'
@@ -15,16 +15,20 @@ The files are structured in MVC style, so that the controller mediates interacti
 
 
 
-### 'model' pages
+### 'Model' pages
+* predictor.py
+* songClassifier.py
 
 
-### 'controller' pages
+### 'Controller' pages
+* routes.py
 
-### misc
+### Misc
 * 'style.css'
 * 'songdata.csv.zip'
 
 
 ## Other information
 This project was created as a class project for CSCI121 at Harvey Mudd College by AP, AK, AR, KJ, and LC.
-How to run on your machine:...
+How to run on your machine:
+
