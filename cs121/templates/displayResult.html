@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <title>Welcome to SnapCap</title>
-<link rel="icon" href="images/templogo.jpeg">
+<link rel="icon" href="templogo.jpeg">
 <script type="text/javascript" src="index.js"></script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,7 +54,7 @@
     
         <!-- Caption input -->
         {% if caption %}
-            <input id="copyinput" value="<q>{{caption}}</q> - <q>{{song}}</q> by {{artist}}">
+            <input id="copyinput" value="{{caption}} - {{song}} by {{artist}}">
             <br>
         {% endif %}
         <!-- Copy to clipboard button -->
@@ -84,7 +84,7 @@
                 <!-- FILL IN w/ correct paths -->
                 <li> <a href="start.html"> Home </a> </li>
                 <li> | </li>
-                <li> <a href="index.html"> Get Started </a> </li>
+                <li> <a href="/"> Get Started </a> </li>
                 <li> | </li>
                 <li> <a href="howitworks.html"> How it Works </a> </li>
                 <li> | </li>
