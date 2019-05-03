@@ -4,11 +4,11 @@ We are four students studying computer science at the Claremont Colleges. SnapCa
 
 Our Live Website is at: http://ec2-54-183-218-184.us-west-1.compute.amazonaws.com/
 
-## files
+## Files
 The files are structured in MVC style, so that the controller mediates interaction between the model and the view.
 
 
-### 'view' pages'
+### 'View' pages'
 * 'index.html' this is the page where the user uploads their selfie, or takes one and then downloads it and then uploads it.
 * 'start.html' this page gives a run-down of how to use our web-app
 * 'about.html' this page gives an overview of our group and motivation
@@ -16,12 +16,15 @@ The files are structured in MVC style, so that the controller mediates interacti
 
 
 
-### 'model' pages
+### 'Model' pages
+* predictor.py
 
 
-### 'controller' pages
 
-### misc
+### 'Controller' pages
+* routes.py
+
+### Misc
 * 'style.css'
 * 'songdata.csv.zip'
 
