@@ -51,12 +51,14 @@
 <!-- Right side: analysis, stats -->
     <center>
     <div id="rightresults">
-    
+	   <!-- <h3> Your Caption: </h3>-->
+	<h3>Your Caption:</h3>
         <!-- Caption input -->
         {% if caption %}
-            <input id="copyinput" value="{{caption}} - {{song}} by {{artist}}">
+            <input id="copyinput" value="{{caption}}">
             <br>
         {% endif %}
+	<p>"From: {{song}}" - {{artist}}</p>
         <!-- Copy to clipboard button -->
         <button class="btn btn-default btn-file button"
                 type="button"
